@@ -15,6 +15,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'majutsushi/tagbar'
 Bundle 'techlivezheng/vim-plugin-minibufexpl'
+Bundle 'MarcWeber/vim-addon-local-vimrc'
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
