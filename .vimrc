@@ -43,6 +43,7 @@ set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight wspace/TAB problems
 set nu                                         " show line numbers + dark grey
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+highlight VertSplit ctermfg=DarkGrey
 
 " Status line
 " -------------------------------------------------------------------------
@@ -51,6 +52,8 @@ set statusline=%<%f\                           " Filename
 set statusline+=%{fugitive#statusline()}       " Git Hotness
 set statusline+=\ [%{getcwd()}]                " Current dir
 set statusline+=%=%-14.(%l,%c%V%)\ %p%%        " Right aligned file nav info
+highlight StatusLine cterm=bold ctermfg=DarkGrey ctermbg=Grey
+highlight StatusLineNC cterm=bold ctermfg=Grey ctermbg=DarkGrey
 " -------------------------------------------------------------------------
 
 " Formatting
