@@ -20,6 +20,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'myusuf3/numbers.vim'
 Bundle "mbbill/undotree"
+Bundle 'scrooloose/nerdcommenter'
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
