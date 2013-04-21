@@ -19,6 +19,7 @@ Bundle 'MarcWeber/vim-addon-local-vimrc'
 Bundle 'godlygeek/tabular'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'myusuf3/numbers.vim'
+Bundle "mbbill/undotree"
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
@@ -134,3 +135,6 @@ vmap <leader>a :Tabularize /
 
 " Numbers
 map <leader>nn :NumbersToggle<CR>
+
+" Undotree
+map <leader>u :UndotreeToggle<CR>
