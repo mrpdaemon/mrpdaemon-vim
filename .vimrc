@@ -18,6 +18,7 @@ Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'MarcWeber/vim-addon-local-vimrc'
 Bundle 'godlygeek/tabular'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'myusuf3/numbers.vim'
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
@@ -130,3 +131,6 @@ nmap <leader>fc :cs f c<space>
 " Tabularize
 nmap <leader>a :Tabularize /
 vmap <leader>a :Tabularize /
+
+" Numbers
+map <leader>nn :NumbersToggle<CR>
