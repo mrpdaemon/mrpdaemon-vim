@@ -95,6 +95,7 @@ nmap <leader>nf :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen=1                  " quit when opening stuff
 let NERDTreeKeepTreeInNewTab=1            " keep tree in a new tab
 let NERDTreeShowHidden=1                  " show hidden files
+let NERDTreeIgnore=['\~$','\.swp$','\.git']
 "let g:NERDTreeDirArrows = 0               " Fix unicode issue with arrows
 
 " TagBar
