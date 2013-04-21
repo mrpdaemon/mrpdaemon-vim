@@ -144,6 +144,7 @@ map <leader>nn :NumbersToggle<CR>
 
 " Undotree
 map <leader>u :UndotreeToggle<CR>
+let g:undotree_SetFocusWhenToggle=1       " focus when toggled
 
 " neocomplcache
 " Launches neocomplcache automatically on vim startup.
