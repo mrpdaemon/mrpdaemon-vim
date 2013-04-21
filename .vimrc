@@ -111,6 +111,7 @@ nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>ga :Git commit --amend<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gl :Git log<CR>
+nnoremap <silent> <leader>gp :Git push<CR>
 
 " Cscope
 if filereadable("cscope.out")
