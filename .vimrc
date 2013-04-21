@@ -21,6 +21,10 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'myusuf3/numbers.vim'
 Bundle "mbbill/undotree"
 Bundle 'scrooloose/nerdcommenter'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/vim-snippets"
+Bundle "garbas/vim-snipmate"
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
