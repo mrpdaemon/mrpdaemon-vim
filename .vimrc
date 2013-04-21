@@ -25,6 +25,7 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/vim-snippets"
 Bundle "garbas/vim-snipmate"
+Bundle "Shougo/neocomplcache"
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
@@ -143,3 +144,17 @@ map <leader>nn :NumbersToggle<CR>
 
 " Undotree
 map <leader>u :UndotreeToggle<CR>
+
+" neocomplcache
+" Launches neocomplcache automatically on vim startup.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Use camel case completion.
+let g:neocomplcache_enable_camel_case_completion = 1
+" Use underscore completion.
+let g:neocomplcache_enable_underbar_completion = 1
+" Sets minimum char length of syntax keyword.
+let g:neocomplcache_min_syntax_length = 3
+" Highlight first candidate
+let g:neocomplcache_enable_auto_select = 1
