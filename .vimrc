@@ -16,6 +16,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'majutsushi/tagbar'
 Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'MarcWeber/vim-addon-local-vimrc'
+Bundle 'godlygeek/tabular'
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
@@ -121,3 +122,7 @@ nmap <leader>ff :cs f f<space>
 nmap <leader>fs :cs f s<space>
 nmap <leader>fg :cs f g<space>
 nmap <leader>fc :cs f c<space>
+
+" Tabularize
+nmap <leader>a :Tabularize /
+vmap <leader>a :Tabularize /
