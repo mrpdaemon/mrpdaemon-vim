@@ -17,6 +17,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'MarcWeber/vim-addon-local-vimrc'
 Bundle 'godlygeek/tabular'
+Bundle 'Lokaltog/vim-easymotion'
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
