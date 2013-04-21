@@ -116,6 +116,7 @@ let NERDTreeIgnore=['\~$','\.swp$','\.git']
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 let tagbar_autoclose=1                    " close when tag is selected
 let tagbar_autofocus=1                    " focus tagbar when opened
+let g:tagbar_width=60                     " larger TagBar
 
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
