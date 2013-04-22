@@ -142,8 +142,8 @@ nmap <leader>a :Tabularize /
 vmap <leader>a :Tabularize /
 
 " Numbers
-let g:enable_numbers = 0                  " disabled by default
 nnoremap <F3> :NumbersToggle<CR>
+nnoremap <F4> :NumbersOnOff<CR>
 
 " Undotree
 map <leader>u :UndotreeToggle<CR>
