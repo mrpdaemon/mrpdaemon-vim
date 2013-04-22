@@ -102,6 +102,8 @@ map zh zH
 " MiniBufExplorer
 nmap <leader>gt :MBEbn<CR>
 nmap <leader>gT :MBEbp<CR>
+let g:statusLineText=""                   " no MiniBufExplorer title text
+let g:miniBufExplStatusLineText="-"       " no MiniBufExplorer title text
 
 " NERDTree
 nmap <leader>nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>
