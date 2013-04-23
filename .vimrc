@@ -123,7 +123,8 @@ let g:tagbar_width=60                     " larger TagBar
 
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gd :Gvsplit! diff<CR>
+nnoremap <silent> <leader>gm :Gvsplit! diff master %<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>ga :Git commit --amend<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
