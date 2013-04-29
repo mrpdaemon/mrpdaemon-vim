@@ -55,7 +55,7 @@ highlight VertSplit ctermfg=DarkGrey
 set colorcolumn=80                             " color 80th column as guide
 highlight ColorColumn ctermbg=DarkGrey
 " Change parenthesis match color to red
-highlight MatchParen ctermbg=5
+highlight MatchParen ctermfg=white ctermbg=5
 
 " Status line
 " -------------------------------------------------------------------------
