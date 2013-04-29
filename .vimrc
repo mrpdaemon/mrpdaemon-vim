@@ -54,6 +54,8 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 highlight VertSplit ctermfg=DarkGrey
 set colorcolumn=80                             " color 80th column as guide
 highlight ColorColumn ctermbg=DarkGrey
+" Change parenthesis match color to red
+highlight MatchParen ctermbg=5
 
 " Status line
 " -------------------------------------------------------------------------
