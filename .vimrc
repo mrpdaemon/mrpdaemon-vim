@@ -52,6 +52,8 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight wspace/TAB proble
 set nu                                         " show line numbers + dark grey
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 highlight VertSplit ctermfg=DarkGrey
+set colorcolumn=80                             " color 80th column as guide
+highlight ColorColumn ctermbg=DarkGrey
 
 " Status line
 " -------------------------------------------------------------------------
