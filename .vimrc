@@ -132,8 +132,8 @@ let g:tagbar_width=60                     " larger TagBar
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gvsplit! diff<CR>
 nnoremap <silent> <leader>gm :Gvsplit! diff master %<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>ga :Git commit --amend<CR>
+nnoremap <silent> <leader>gc :Gcommit -a<CR>
+nnoremap <silent> <leader>ga :Gcommit -a --amend<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gl :Git log<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
