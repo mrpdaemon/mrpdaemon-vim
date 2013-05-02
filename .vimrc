@@ -38,6 +38,7 @@ set showcmd                                    " display incomplete commands
 set incsearch                                  " do incremental searching
 set scrolloff=5                                " keep 5 lines above/below cursor
                                                " when scrolling
+set clipboard=unnamedplus                      " copy/paste with system clipboard
 
 " ViM UI
 syntax on                                      " syntax highlighting
