@@ -80,6 +80,9 @@ set smarttab                                   " Let TAB/BSpace insert/delete sp
 " Per-language settings
 " C
 autocmd FileType c,cpp setlocal cindent        " C indentation rules
+" In unclosed parenthesis scopes indent new lines with next char after opening
+" parenthesis.
+set cino=(0
 
 " Controls
 set backspace=indent,eol,start                 " backspace in insert mode
