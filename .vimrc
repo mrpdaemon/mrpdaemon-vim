@@ -32,6 +32,7 @@ filetype plugin indent on                      " Automatically detect file types
 
 " ViM behavior
 set nobackup                                   " don't keep backup files
+set noswapfile                                 " don't keep swap files
 set history=1000                               " keep a lot of cmdline history
 set showcmd                                    " display incomplete commands
 set incsearch                                  " do incremental searching
