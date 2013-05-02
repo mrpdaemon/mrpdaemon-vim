@@ -128,10 +128,15 @@ let tagbar_autoclose=1                    " close when tag is selected
 let tagbar_autofocus=1                    " focus tagbar when opened
 let g:tagbar_width=60                     " larger TagBar
 
+" Silent command to avoid 'Hit ENTER to continue' after calling git diff
+command! -nargs=1 Silent
+         \ | execute ':silent !'.<q-args>
+         \ | execute ':redraw!'
+
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Git diff<CR>
-nnoremap <silent> <leader>gm :Git diff master %<CR>
+nnoremap <silent> <leader>gd :Silent git diff<CR>
+nnoremap <silent> <leader>gm :Silent git diff master %<CR>
 nnoremap <silent> <leader>gc :Gcommit -a<CR>
 nnoremap <silent> <leader>ga :Gcommit -a --amend<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
