@@ -26,6 +26,7 @@ Bundle "tomtom/tlib_vim"
 Bundle "honza/vim-snippets"
 Bundle "garbas/vim-snipmate"
 Bundle "Shougo/neocomplcache"
+Bundle "nathanaelkane/vim-indent-guides"
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
@@ -174,3 +175,10 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 " Highlight first candidate
 let g:neocomplcache_enable_auto_select = 1
+
+" vim-indent-guides
+let g:indent_guides_start_level = 2       " Start from level 2
+let g:indent_guides_guide_size = 1        " Single character guide
+let g:indent_guides_auto_colors = 0       " Custom guide colors
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=DarkGrey
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=Black
