@@ -107,6 +107,8 @@ vnoremap > >gv
 " Easier horizontal scrolling
 map zl zL
 map zh zH
+" Allow toggling list characters
+nmap <leader>l :set list!<CR>
 
 " Plugin configurations
 
