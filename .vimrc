@@ -52,6 +52,7 @@ set wildmenu                                   " vim command completion
 set wildmode=list:longest,full                 " list matches, longest common, all
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight wspace/TAB problems
+highlight SpecialKey ctermfg=DarkGrey
 set nu                                         " show line numbers + dark grey
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 highlight VertSplit ctermfg=DarkGrey
