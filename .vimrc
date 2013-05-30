@@ -129,7 +129,7 @@ let g:NERDTreeWinSize=60                  " larger width
 "let g:NERDTreeDirArrows = 0               " Fix unicode issue with arrows
 
 " TagBar
-nnoremap <silent> <leader>tt :TagbarToggle<CR>
+nnoremap <silent> <leader>t :TagbarToggle<CR>
 let tagbar_autoclose=1                    " close when tag is selected
 let tagbar_autofocus=1                    " focus tagbar when opened
 let g:tagbar_width=60                     " larger TagBar
