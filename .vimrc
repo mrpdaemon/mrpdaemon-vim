@@ -60,6 +60,14 @@ set colorcolumn=80                             " color 80th column as guide
 highlight ColorColumn ctermbg=DarkGrey
 " Change parenthesis match color to red
 highlight MatchParen ctermfg=white ctermbg=5
+" Use bold typefaces for syntax highlighting special keywords
+highlight Type cterm=bold
+highlight Function cterm=bold ctermfg=6
+highlight Conditional cterm=bold ctermfg=3
+highlight Statement cterm=bold ctermfg=3
+highlight Include cterm=bold ctermfg=5
+highlight Boolean cterm=bold ctermfg=1
+highlight Identifier cterm=bold ctermfg=6
 
 " Status line
 " -------------------------------------------------------------------------
