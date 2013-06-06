@@ -68,6 +68,8 @@ highlight Statement cterm=bold ctermfg=3
 highlight Include cterm=bold ctermfg=5
 highlight Boolean cterm=bold ctermfg=1
 highlight Identifier cterm=bold ctermfg=6
+highlight Macro cterm=bold ctermfg=5
+highlight PreProc cterm=bold ctermfg=5
 
 " Status line
 " -------------------------------------------------------------------------
