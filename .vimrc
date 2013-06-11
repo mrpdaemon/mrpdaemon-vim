@@ -97,6 +97,9 @@ autocmd FileType c,cpp setlocal cindent        " C indentation rules
 " In unclosed parenthesis scopes indent new lines with next char after opening
 " parenthesis.
 set cino=(0
+" Vala
+autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+au BufRead,BufNewFile *.vala,*.vapi setfiletype vala
 
 " Controls
 set backspace=indent,eol,start                 " backspace in insert mode
