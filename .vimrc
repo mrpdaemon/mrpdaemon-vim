@@ -27,6 +27,7 @@ Bundle "honza/vim-snippets"
 Bundle "garbas/vim-snipmate"
 Bundle "Shougo/neocomplcache"
 Bundle "nathanaelkane/vim-indent-guides"
+Bundle "kien/ctrlp.vim"
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
@@ -198,3 +199,6 @@ let g:indent_guides_guide_size = 1        " Single character guide
 let g:indent_guides_auto_colors = 0       " Custom guide colors
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=DarkGrey
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=Black
+
+" ctrlp
+nmap <leader>p :CtrlP<CR>
