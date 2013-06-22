@@ -123,6 +123,8 @@ map zl zL
 map zh zH
 " Allow toggling list characters
 nmap <leader>l :set list!<CR>
+" Rotate windows
+nmap <leader>r <C-W><C-R>
 
 " Plugin configurations
 
