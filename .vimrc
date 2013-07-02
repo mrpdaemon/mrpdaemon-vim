@@ -125,6 +125,8 @@ map zh zH
 nmap <leader>l :set list!<CR>
 " Rotate windows
 nmap <leader>r <C-W><C-R>
+" Preview current tag
+nmap <leader>] <C-W>}
 
 " Plugin configurations
 
