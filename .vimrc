@@ -205,4 +205,5 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=DarkGrey
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=Black
 
 " ctrlp
-nmap <leader>p :CtrlP<CR>
+nmap <leader>p :CtrlPBuffer<CR>
+nmap <leader>o :CtrlP<CR>
