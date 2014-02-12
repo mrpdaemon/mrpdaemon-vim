@@ -28,6 +28,7 @@ Bundle "garbas/vim-snipmate"
 Bundle "Shougo/neocomplcache"
 Bundle "nathanaelkane/vim-indent-guides"
 Bundle "kien/ctrlp.vim"
+Bundle "scrooloose/syntastic"
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
