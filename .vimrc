@@ -14,7 +14,8 @@ Bundle 'chazy/cscope_maps'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'majutsushi/tagbar'
-Bundle 'techlivezheng/vim-plugin-minibufexpl'
+Bundle 'bling/vim-bufferline'
+Bundle 'bling/vim-airline'
 Bundle 'MarcWeber/vim-addon-local-vimrc'
 Bundle 'godlygeek/tabular'
 Bundle 'Lokaltog/vim-easymotion'
@@ -28,7 +29,6 @@ Bundle "garbas/vim-snipmate"
 Bundle "Shougo/neocomplcache"
 Bundle "nathanaelkane/vim-indent-guides"
 Bundle "kien/ctrlp.vim"
-Bundle "scrooloose/syntastic"
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
@@ -54,6 +54,7 @@ set wildmenu                                   " vim command completion
 set wildmode=list:longest,full                 " list matches, longest common, all
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight wspace/TAB problems
+set t_Co=256                                   " Use 256 color terminal
 highlight SpecialKey ctermfg=DarkGrey
 set nu                                         " show line numbers + dark grey
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
@@ -76,12 +77,6 @@ highlight PreProc cterm=bold ctermfg=5
 " Status line
 " -------------------------------------------------------------------------
 set laststatus=2                               " always show status line
-set statusline=%<%f\                           " Filename
-set statusline+=%{fugitive#statusline()}       " Git Hotness
-set statusline+=\ [%{getcwd()}]                " Current dir
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%        " Right aligned file nav info
-highlight StatusLine cterm=bold ctermfg=DarkGrey ctermbg=Grey
-highlight StatusLineNC cterm=bold ctermfg=Grey ctermbg=DarkGrey
 " -------------------------------------------------------------------------
 
 " Formatting
@@ -130,12 +125,6 @@ nmap <leader>r <C-W><C-R>
 nmap <leader>] <C-W>}
 
 " Plugin configurations
-
-" MiniBufExplorer
-nmap <leader>gt :MBEbn<CR>
-nmap <leader>gT :MBEbp<CR>
-let g:statusLineText=""                   " no MiniBufExplorer title text
-let g:miniBufExplStatusLineText="-"       " no MiniBufExplorer title text
 
 " NERDTree
 nmap <leader>nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>
@@ -208,3 +197,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=Black
 " ctrlp
 nmap <leader>p :CtrlPBuffer<CR>
 nmap <leader>o :CtrlP<CR>
+
+" vim-bufferline
+let g:bufferline_echo = 0
