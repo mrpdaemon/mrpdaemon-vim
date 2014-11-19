@@ -201,7 +201,10 @@ nmap <leader>o :CtrlP<CR>
 
 " vim-bufferline
 let g:bufferline_echo = 0                  " Don't echo buffer name to cmd bar
+let g:bufferline_rotate = 1                " Rotate buffers
+let g:bufferline_fixed_index = -1          " Fix current buffer to last position
 
 " vim-airline
 let g:airline#extensions#whitespace#enabled = 0 " Disable whitespace warnings
+let g:airline#extensions#tagbar#enabled = 0     " Disable tagbar integration
 let g:airline_section_y = ''                    " Don't want encoding info
