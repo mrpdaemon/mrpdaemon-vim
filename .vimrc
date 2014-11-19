@@ -61,8 +61,9 @@ set t_Co=256                                   " Use 256 color terminal
 set background=dark                            " Prefer dark background
 colorscheme xoria256                           " Set color scheme
 set nu                                         " show line numbers + dark grey
+set cursorline                                 " highlight current line
 set colorcolumn=80                             " color 80th column as guide
-highlight ColorColumn ctermbg=DarkGrey
+highlight ColorColumn ctermbg=237
 " Use bold typefaces for syntax highlighting special keywords
 highlight Type cterm=bold
 highlight Function cterm=bold
