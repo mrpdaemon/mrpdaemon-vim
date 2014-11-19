@@ -3,32 +3,35 @@
 set nocompatible                " Use Vim settings instead of vi - must be first
                                 " line
 
-" Bundle configuration
+" Plugin configuration
 " -------------------------------------------------------------------------
 filetype off
 set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'chazy/cscope_maps'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-fugitive'
-Bundle 'majutsushi/tagbar'
-Bundle 'bling/vim-bufferline'
-Bundle 'bling/vim-airline'
-Bundle 'MarcWeber/vim-addon-local-vimrc'
-Bundle 'godlygeek/tabular'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'myusuf3/numbers.vim'
-Bundle "mbbill/undotree"
-Bundle 'scrooloose/nerdcommenter'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "honza/vim-snippets"
-Bundle "garbas/vim-snipmate"
-Bundle "Shougo/neocomplcache"
-Bundle "nathanaelkane/vim-indent-guides"
-Bundle "kien/ctrlp.vim"
+Plugin 'gmarik/vundle'
+Plugin 'chazy/cscope_maps'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
+Plugin 'bling/vim-bufferline'
+Plugin 'bling/vim-airline'
+Plugin 'MarcWeber/vim-addon-local-vimrc'
+Plugin 'godlygeek/tabular'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'mbbill/undotree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
+Plugin 'Shougo/neocomplcache'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/xoria256.vim'
+
+call vundle#end()
 " -------------------------------------------------------------------------
 
 filetype plugin indent on                      " Automatically detect file types
@@ -55,24 +58,21 @@ set wildmode=list:longest,full                 " list matches, longest common, a
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight wspace/TAB problems
 set t_Co=256                                   " Use 256 color terminal
-highlight SpecialKey ctermfg=DarkGrey
+set background=dark                            " Prefer dark background
+colorscheme xoria256                           " Set color scheme
 set nu                                         " show line numbers + dark grey
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-highlight VertSplit ctermfg=DarkGrey
 set colorcolumn=80                             " color 80th column as guide
 highlight ColorColumn ctermbg=DarkGrey
-" Change parenthesis match color to red
-highlight MatchParen ctermfg=white ctermbg=5
 " Use bold typefaces for syntax highlighting special keywords
 highlight Type cterm=bold
-highlight Function cterm=bold ctermfg=6
-highlight Conditional cterm=bold ctermfg=3
-highlight Statement cterm=bold ctermfg=3
-highlight Include cterm=bold ctermfg=5
-highlight Boolean cterm=bold ctermfg=1
-highlight Identifier cterm=bold ctermfg=6
-highlight Macro cterm=bold ctermfg=5
-highlight PreProc cterm=bold ctermfg=5
+highlight Function cterm=bold
+highlight Conditional cterm=bold
+highlight Statement cterm=bold
+highlight Include cterm=bold
+highlight Boolean cterm=bold
+highlight Identifier cterm=bold
+highlight Macro cterm=bold
+highlight PreProc cterm=bold
 
 " Status line
 " -------------------------------------------------------------------------
