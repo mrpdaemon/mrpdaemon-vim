@@ -199,4 +199,8 @@ nmap <leader>p :CtrlPBuffer<CR>
 nmap <leader>o :CtrlP<CR>
 
 " vim-bufferline
-let g:bufferline_echo = 0
+let g:bufferline_echo = 0                  " Don't echo buffer name to cmd bar
+
+" vim-airline
+let g:airline#extensions#whitespace#enabled = 0 " Disable whitespace warnings
+let g:airline_section_y = ''                    " Don't want encoding info
