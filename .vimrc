@@ -208,3 +208,4 @@ let g:bufferline_fixed_index = -1          " Fix current buffer to last position
 let g:airline#extensions#whitespace#enabled = 0 " Disable whitespace warnings
 let g:airline#extensions#tagbar#enabled = 0     " Disable tagbar integration
 let g:airline_section_y = ''                    " Don't want encoding info
+let g:airline_theme = 'base16'                  " Theme selection
