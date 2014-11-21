@@ -190,10 +190,9 @@ let g:neocomplcache_enable_auto_select = 1
 
 " vim-indent-guides
 let g:indent_guides_start_level = 2       " Start from level 2
-let g:indent_guides_guide_size = 1        " Single character guide
 let g:indent_guides_auto_colors = 0       " Custom guide colors
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=DarkGrey
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=Black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=237
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=238
 
 " ctrlp
 nmap <leader>p :CtrlPBuffer<CR>
