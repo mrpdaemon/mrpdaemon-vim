@@ -198,6 +198,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=238
 " ctrlp
 nmap <leader>p :CtrlPBuffer<CR>
 nmap <leader>o :CtrlP<CR>
+let g:ctrlp_max_files = 0                 " No limit to the number of files
+let g:ctrlp_max_depth = 40                " Large projects hit depth limit
 
 " vim-bufferline
 let g:bufferline_echo = 0                  " Don't echo buffer name to cmd bar
