@@ -30,6 +30,7 @@ Plugin 'Shougo/neocomplcache'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/xoria256.vim'
+Plugin 'wookiehangover/jshint.vim'
 
 call vundle#end()
 " -------------------------------------------------------------------------
