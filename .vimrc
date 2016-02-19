@@ -14,10 +14,10 @@ Plugin 'chazy/cscope_maps'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bling/vim-bufferline'
-Plugin 'bling/vim-airline'
 Plugin 'MarcWeber/vim-addon-local-vimrc'
-Plugin 'godlygeek/tabular'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'mbbill/undotree'
@@ -26,11 +26,15 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
-Plugin 'Shougo/neocomplcache'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'rking/ag.vim'
 Plugin 'vim-scripts/xoria256.vim'
 Plugin 'wookiehangover/jshint.vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'ternjs/tern_for_vim'
 
 call vundle#end()
 " -------------------------------------------------------------------------
@@ -154,14 +158,17 @@ nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gl :Git log<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 
-" Cscope
+" Cscope and SilverSearcher
 if filereadable("cscope.out")
    cscope add cscope.out
+   nmap <leader>ff :cs f f<space>
+   nmap <leader>fs :cs f s<space>
+   nmap <leader>fg :cs f g<space>
+   nmap <leader>fc :cs f c<space>
+else
+   nmap <leader>ff :AgFile!<space>
+   nmap <leader>fs :Ag!<space>
 endif
-nmap <leader>ff :cs f f<space>
-nmap <leader>fs :cs f s<space>
-nmap <leader>fg :cs f g<space>
-nmap <leader>fc :cs f c<space>
 
 " Tabularize
 nmap <leader>a :Tabularize /
@@ -200,6 +207,8 @@ nmap <leader>p :CtrlPBuffer<CR>
 nmap <leader>o :CtrlP<CR>
 let g:ctrlp_max_files = 0                 " No limit to the number of files
 let g:ctrlp_max_depth = 40                " Large projects hit depth limit
+let g:ctrlp_lazy_update = 1               " Slow to search on every key press
+let g:ctrlp_by_filename = 1               " Only search file names
 
 " vim-bufferline
 let g:bufferline_echo = 0                  " Don't echo buffer name to cmd bar
@@ -211,3 +220,6 @@ let g:airline#extensions#whitespace#enabled = 0 " Disable whitespace warnings
 let g:airline#extensions#tagbar#enabled = 0     " Disable tagbar integration
 let g:airline_section_y = ''                    " Don't want encoding info
 let g:airline_theme = 'base16'                  " Theme selection
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1 " auto close preview window
