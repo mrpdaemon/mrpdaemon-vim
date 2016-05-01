@@ -22,10 +22,8 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'mbbill/undotree'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'garbas/vim-snipmate'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -223,3 +221,6 @@ let g:airline_theme = 'base16'                  " Theme selection
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1 " auto close preview window
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger = '<c-space>'
