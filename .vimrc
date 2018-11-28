@@ -29,10 +29,11 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'vim-scripts/xoria256.vim'
-Plugin 'wookiehangover/jshint.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'ternjs/tern_for_vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()
 " -------------------------------------------------------------------------
@@ -66,17 +67,17 @@ colorscheme xoria256                           " Set color scheme
 set nu                                         " show line numbers + dark grey
 set cursorline                                 " highlight current line
 set colorcolumn=80                             " color 80th column as guide
-highlight ColorColumn ctermbg=238
+highlight ColorColumn ctermbg=238 guibg=#444444
 " Use bold typefaces for syntax highlighting special keywords
-highlight Type cterm=bold
-highlight Function cterm=bold
-highlight Conditional cterm=bold
-highlight Statement cterm=bold
-highlight Include cterm=bold
-highlight Boolean cterm=bold
-highlight Identifier cterm=bold
-highlight Macro cterm=bold
-highlight PreProc cterm=bold
+highlight Type cterm=bold gui=bold
+highlight Function cterm=bold gui=bold
+highlight Conditional cterm=bold gui=bold
+highlight Statement cterm=bold gui=bold
+highlight Include cterm=bold gui=bold
+highlight Boolean cterm=bold gui=bold
+highlight Identifier cterm=bold gui=bold
+highlight Macro cterm=bold gui=bold
+highlight PreProc cterm=bold gui=bold
 
 " Status line
 " -------------------------------------------------------------------------
@@ -169,8 +170,8 @@ else
 endif
 
 " Tabularize
-nmap <leader>a :Tabularize /
-vmap <leader>a :Tabularize /
+nmap <leader>z :Tabularize /
+vmap <leader>z :Tabularize /
 
 " Numbers
 nnoremap <F3> :NumbersToggle<CR>
@@ -197,8 +198,8 @@ let g:neocomplcache_enable_auto_select = 1
 " vim-indent-guides
 let g:indent_guides_start_level = 2       " Start from level 2
 let g:indent_guides_auto_colors = 0       " Custom guide colors
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=237
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=238
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=237 guibg=#444444
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=238 guibg=#444444
 
 " ctrlp
 nmap <leader>p :CtrlPBuffer<CR>
@@ -224,3 +225,9 @@ let g:ycm_autoclose_preview_window_after_completion = 1 " auto close preview win
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger = '<c-space>'
+
+" Silver searcher (ag.vim)
+nmap <leader>a :Ag<CR>
+
+" FZF
+map <leader>f :FZF<CR>
