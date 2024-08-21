@@ -34,6 +34,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'junegunn/fzf'
 
 call vundle#end()
 " -------------------------------------------------------------------------
