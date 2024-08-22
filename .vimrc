@@ -223,6 +223,7 @@ let g:airline_theme = 'base16'                  " Theme selection
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1 " auto close preview window
+let g:ycm_global_ycm_extra_conf = '/home/mark/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger = '<c-space>'
