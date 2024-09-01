@@ -134,7 +134,6 @@ nmap <leader>] <C-W>}
 
 " NERDTree
 nmap <leader>nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-nmap <leader>nf :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen=1                  " quit when opening stuff
 let NERDTreeKeepTreeInNewTab=1            " keep tree in a new tab
 let NERDTreeShowHidden=1                  " show hidden files
@@ -149,30 +148,23 @@ let tagbar_autofocus=1                    " focus tagbar when opened
 let g:tagbar_width=60                     " larger TagBar
 
 " Fugitive
-nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gs :Git status<CR>
 nnoremap <silent> <leader>gd :Git diff<CR>
 nnoremap <silent> <leader>gm :Git diff master %<CR>
-nnoremap <silent> <leader>gc :Gcommit -a<CR>
-nnoremap <silent> <leader>ga :Gcommit -a --amend<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gc :Git commit -a<CR>
+nnoremap <silent> <leader>ga :Git commit -a --amend<CR>
+nnoremap <silent> <leader>gb :Git blame<CR>
 nnoremap <silent> <leader>gl :Git log<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 
-" Cscope and SilverSearcher
+" Cscope
 if filereadable("cscope.out")
    cscope add cscope.out
    nmap <leader>ff :cs f f<space>
    nmap <leader>fs :cs f s<space>
    nmap <leader>fg :cs f g<space>
    nmap <leader>fc :cs f c<space>
-else
-   nmap <leader>ff :AgFile!<space>
-   nmap <leader>fs :Ag!<space>
 endif
-
-" Tabularize
-nmap <leader>z :Tabularize /
-vmap <leader>z :Tabularize /
 
 " Numbers
 nnoremap <F3> :NumbersToggle<CR>
@@ -181,20 +173,6 @@ nnoremap <F4> :NumbersOnOff<CR>
 " Undotree
 map <leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1       " focus when toggled
-
-" neocomplcache
-" Launches neocomplcache automatically on vim startup.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underscore completion.
-let g:neocomplcache_enable_underbar_completion = 1
-" Sets minimum char length of syntax keyword.
-let g:neocomplcache_min_syntax_length = 3
-" Highlight first candidate
-let g:neocomplcache_enable_auto_select = 1
 
 " vim-indent-guides
 let g:indent_guides_start_level = 2       " Start from level 2
