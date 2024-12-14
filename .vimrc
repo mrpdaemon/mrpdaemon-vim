@@ -35,6 +35,7 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'junegunn/fzf'
+Plugin 'rhysd/vim-clang-format'
 
 call vundle#end()
 " -------------------------------------------------------------------------
@@ -211,3 +212,9 @@ nmap <leader>a :Ag<CR>
 
 " FZF
 map <leader>f :FZF<CR>
+
+" clang-format
+let g:clang_format#detect_style_file = 1 " detect .clang-format files
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp ClangFormatAutoEnable " auto enable auto format on save
