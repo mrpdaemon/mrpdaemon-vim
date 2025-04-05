@@ -24,7 +24,7 @@ Plugin 'mbbill/undotree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
@@ -36,6 +36,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'junegunn/fzf'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'augmentcode/augment.vim'
 
 call vundle#end()
 " -------------------------------------------------------------------------
@@ -218,3 +219,10 @@ let g:clang_format#detect_style_file = 1 " detect .clang-format files
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 autocmd FileType c,cpp ClangFormatAutoEnable " auto enable auto format on save
+
+" augment
+nnoremap <leader>ac :Augment chat<CR>
+vnoremap <leader>ac :Augment chat<CR>
+nnoremap <leader>an :Augment chat-new<CR>
+vnoremap <leader>an :Augment chat-new<CR>
+nnoremap <leader>at :Augment chat-toggle<CR>
