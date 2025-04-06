@@ -89,11 +89,49 @@ require("lazy").setup({
         vim.g.NERDTreeWinSize = 60 -- Larger window size
       end,
     },
+    { "ctrlpvim/ctrlp.vim",
+       keys = {
+         { "<leader>p", "<cmd>CtrlPBuffer<cr>", desc = "CtrlP" },
+         { "<leader>o", "<cmd>CtrlP<cr>", desc = "CtrlP" },
+       },
+      init = function()
+        vim.g.ctrlp_max_files = 0          -- no limit on max files
+        vim.g.ctrlp_max_depth = 40         -- large projects hit the depth limit
+        vim.g.ctrlp_lazy_update = 1        -- slow to search on every key press
+        vim.g.ctrlp_by_filename = 1        -- only search file names
+      end,
+    },
+    { "junegunn/fzf",
+       keys = {
+         { "<leader>f", "<cmd>FZF<cr>", desc = "FZF" },
+       },
+      config = function()
+      end,
+    },
+    { "rking/ag.vim",
+       keys = {
+         { "<leader>a", "<cmd>Ag<cr>", desc = "Silver searcher" },
+       },
+      config = function()
+      end,
+    },
+    { "majutsushi/tagbar",
+       keys = {
+         { "<leader>t", "<cmd>TagbarToggle<cr>", desc = "Tagbar" },
+       },
+      init = function()
+        vim.g.tagbar_autoclose = 1         -- close when tag is selected
+        vim.g.tagbar_autofocus = 1         -- focus when tagbar is opened
+        vim.g.tagbar_width = 60            -- larger tagbar
+      end,
+    },
 
   },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
+
+vim.keymap.set('n', '<leader>l', '<cmd>Lazy<CR>', { silent = true })
 
 -- Colorscheme tweaks
 vim.cmd([[highlight String ctermfg=229 guifg=#ffffaf]])
@@ -108,4 +146,9 @@ vim.cmd([[highlight Identifier cterm=bold gui=bold]])
 vim.cmd([[highlight Macro cterm=bold gui=bold]])
 vim.cmd([[highlight PreProc cterm=bold gui=bold]])
 
--- Other configuration
+-- Easy window movements with CTRL+hjkl
+vim.keymap.set('n', '<C-J>', '<C-W>j', { silent = true })
+vim.keymap.set('n', '<C-K>', '<C-W>k', { silent = true })
+vim.keymap.set('n', '<C-L>', '<C-W>l', { silent = true })
+vim.keymap.set('n', '<C-H>', '<C-W>h', { silent = true })
+
