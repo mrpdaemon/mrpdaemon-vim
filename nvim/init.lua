@@ -125,13 +125,40 @@ require("lazy").setup({
         vim.g.tagbar_width = 60            -- larger tagbar
       end,
     },
-
+    { "rhysd/vim-clang-format",
+      init = function()
+        vim.g.clang_format_detect_style_file = 1  -- detect .clang-format files
+      end,
+    },
+    { "augmentcode/augment.vim",
+       keys = {
+         { "<leader>ac", "<cmd>Augment chat<cr>", desc = "Augment Chat" },
+         { "<leader>an", "<cmd>Augment chat-new<cr>", desc = "Augment New Chat" },
+         { "<leader>at", "<cmd>Augment chat-toggle<cr>", desc = "Augment Chat Toggle" },
+       },
+      config = function()
+      end,
+    },
   },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
 
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<CR>', { silent = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp" },
+  callback = function()
+    -- Buffer-local normal mode mapping: <Leader>cf triggers :ClangFormat
+    vim.api.nvim_buf_set_keymap(0, "n", "<Leader>cf", ":<C-u>ClangFormat<CR>",
+                                { noremap = true, silent = true })
+    -- Buffer-local visual mode mapping: <Leader>cf triggers :ClangFormat
+    vim.api.nvim_buf_set_keymap(0, "v", "<Leader>cf", ":ClangFormat<CR>",
+                                { noremap = true, silent = true })
+    -- Enable auto-formatting on save
+    vim.cmd("ClangFormatAutoEnable")
+  end,
+})
 
 -- Colorscheme tweaks
 vim.cmd([[highlight String ctermfg=229 guifg=#ffffaf]])
