@@ -37,6 +37,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'junegunn/fzf'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'augmentcode/augment.vim'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 " -------------------------------------------------------------------------
