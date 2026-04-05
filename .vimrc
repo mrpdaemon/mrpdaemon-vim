@@ -137,6 +137,7 @@ nmap <leader>] <C-W>}
 
 " NERDTree
 nmap <leader>nt :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+nmap <leader>nf :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen=1                  " quit when opening stuff
 let NERDTreeKeepTreeInNewTab=1            " keep tree in a new tab
 let NERDTreeShowHidden=1                  " show hidden files
@@ -151,14 +152,7 @@ let tagbar_autofocus=1                    " focus tagbar when opened
 let g:tagbar_width=60                     " larger TagBar
 
 " Fugitive
-nnoremap <silent> <leader>gs :Git status<CR>
-nnoremap <silent> <leader>gd :Git diff<CR>
-nnoremap <silent> <leader>gm :Git diff master %<CR>
-nnoremap <silent> <leader>gc :Git commit -a<CR>
-nnoremap <silent> <leader>ga :Git commit -a --amend<CR>
-nnoremap <silent> <leader>gb :Git blame<CR>
-nnoremap <silent> <leader>gl :Git log<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
+nnoremap <silent> <leader>gv :Gvdiffsplit<CR>
 
 " Cscope
 if filereadable("cscope.out")
