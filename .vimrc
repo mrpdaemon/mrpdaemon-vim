@@ -225,3 +225,7 @@ nnoremap <leader>at :Augment chat-toggle<CR>
 
 " vim-jsonnet
 let g:jsonnet_format_on_save = 0
+
+" vim-gitgutter
+nnoremap <leader>gm :let g:gitgutter_diff_base='master'<CR>
+nnoremap <leader>gc :let g:gitgutter_diff_base=''<CR>
