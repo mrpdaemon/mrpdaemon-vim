@@ -37,6 +37,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'junegunn/fzf'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'augmentcode/augment.vim'
+Plugin 'google/vim-jsonnet'
 Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
@@ -64,7 +65,7 @@ set showmatch                                  " show matching parenthesis
 set wildmenu                                   " vim command completion
 set wildmode=list:longest,full                 " list matches, longest common, all
 set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight wspace/TAB problems
+set listchars=tab:>·,trail:~,extends:>,nbsp:. " Highlight wspace/TAB problems
 set t_Co=256                                   " Use 256 color terminal
 set background=dark                            " Prefer dark background
 colorscheme xoria256                           " Set color scheme
@@ -221,3 +222,6 @@ vnoremap <leader>ac :Augment chat<CR>
 nnoremap <leader>an :Augment chat-new<CR>
 vnoremap <leader>an :Augment chat-new<CR>
 nnoremap <leader>at :Augment chat-toggle<CR>
+
+" vim-jsonnet
+let g:jsonnet_format_on_save = 0
