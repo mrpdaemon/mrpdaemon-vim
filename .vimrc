@@ -154,6 +154,7 @@ let g:tagbar_width=60                     " larger TagBar
 
 " Fugitive
 nnoremap <silent> <leader>gv :Gvdiffsplit<CR>
+nnoremap <silent> <leader>gvm :Gvdiffsplit master<CR>
 
 " Cscope
 if filereadable("cscope.out")
