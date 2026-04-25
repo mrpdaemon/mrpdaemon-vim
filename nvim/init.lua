@@ -30,12 +30,14 @@ vim.opt.colorcolumn = "80"            -- Color the 80th column
 
 -- Formatting options
 vim.opt.autoindent = true             -- automatically indent
-vim.opt.wrap = false                  -- wrap long lines 
+vim.opt.wrap = false                  -- wrap long lines
 vim.opt.expandtab = true              -- use spaces not TABs
 vim.opt.shiftwidth = 3                -- 3 spaces per indent
 vim.opt.tabstop = 3                   -- indent every 3 columns
 vim.opt.softtabstop = 3               -- let backspace delete indents
-vim.opt.smarttab = true               -- Let TAB/BSpace insert/delete spaces 
+vim.opt.smarttab = true               -- Let TAB/BSpace insert/delete spaces
+vim.opt.list = true                   -- show tab / trail chars
+vim.opt.listchars = "tab:>·,trail:~,extends:>,nbsp:."
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -61,9 +63,9 @@ require("lazy").setup({
         "vim-airline/vim-airline-themes",
       },
       init = function()
-	     vim.g.airline_extensions_whitespace_enabled = 0 -- Disable whitespace warnings
-	     vim.g.airline_extensions_tagbar_enabled = 0     -- Disable tagbar integration
-	     vim.g.airline_section_y = ""                    -- Don't want encoding info
+        vim.g.airline_extensions_whitespace_enabled = 0 -- Disable whitespace warnings
+        vim.g.airline_extensions_tagbar_enabled = 0     -- Disable tagbar integration
+        vim.g.airline_section_y = ""                    -- Don't want encoding info
         vim.g.airline_theme = "base16"                  -- Theme selection
       end,
     },
@@ -80,6 +82,7 @@ require("lazy").setup({
     { "scrooloose/nerdtree",
        keys = {
          { "<leader>nt", "<cmd>NERDTreeToggle<cr>", desc = "NERDTree" },
+         { "<leader>nf", "<cmd>NERDTreeFind<cr>", desc = "NERDTree Find" },
        },
       init = function()
         vim.g.NERDTreeQuitOnOpen = 1       -- quit when opening stuff
@@ -87,6 +90,30 @@ require("lazy").setup({
         vim.g.NERDTreeShowHidden = 1       -- show hidden files
         vim.g.NERDTreeIgnore = { '\\~$', '\\.swp$', '\\.git' }
         vim.g.NERDTreeWinSize = 60 -- Larger window size
+      end,
+    },
+    { "tpope/vim-fugitive",
+       keys = {
+         { "<leader>gv", "<cmd>Gvdiffsplit<cr>", desc = "Git vertical split" },
+         { "<leader>gvm", "<cmd>Gvdiffsplit master<cr>", desc = "Git vertical split master" },
+       },
+      config = function()
+      end,
+    },
+    { "airblade/vim-gitgutter",
+       keys = {
+         { "<leader>gm",
+           function()
+              vim.g.gitgutter_diff_base = "master"
+           end,
+           desc = "Gitgutter base = master" },
+         { "<leader>gc",
+           function()
+              vim.g.gitgutter_diff_base = ""
+           end,
+           desc = "Gitgutter base = HEAD" },
+       },
+      config = function()
       end,
     },
     { "ctrlpvim/ctrlp.vim",
@@ -126,17 +153,15 @@ require("lazy").setup({
       end,
     },
     { "rhysd/vim-clang-format",
+      ft = { "c", "cpp", "objc" },
       init = function()
         vim.g.clang_format_detect_style_file = 1  -- detect .clang-format files
       end,
     },
-    { "augmentcode/augment.vim",
-       keys = {
-         { "<leader>ac", "<cmd>Augment chat<cr>", desc = "Augment Chat" },
-         { "<leader>an", "<cmd>Augment chat-new<cr>", desc = "Augment New Chat" },
-         { "<leader>at", "<cmd>Augment chat-toggle<cr>", desc = "Augment Chat Toggle" },
-       },
-      config = function()
+    { "google/vim-jsonnet",
+      ft = { "jsonnet" },
+      init = function()
+        vim.g.jsonnet_format_on_save = 0
       end,
     },
   },
