@@ -93,6 +93,7 @@ require("lazy").setup({
       end,
     },
     { "tpope/vim-fugitive",
+       lazy = false,
        keys = {
          { "<leader>gv", "<cmd>Gvdiffsplit<cr>", desc = "Git vertical split" },
          { "<leader>gvm", "<cmd>Gvdiffsplit master<cr>", desc = "Git vertical split master" },
@@ -101,6 +102,7 @@ require("lazy").setup({
       end,
     },
     { "airblade/vim-gitgutter",
+       lazy = false,
        keys = {
          { "<leader>gm",
            function()
