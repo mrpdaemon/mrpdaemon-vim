@@ -189,7 +189,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Colorscheme tweaks
 vim.cmd([[highlight String ctermfg=229 guifg=#ffffaf]])
-vim.cmd([[highlight ColorColumn ctermbg=238 guibg=#444444]])
+vim.cmd([[highlight ColorColumn cterm=NONE gui=NONE ctermbg=236 guibg=#303030]])
 vim.cmd([[highlight Type cterm=bold gui=bold]])
 vim.cmd([[highlight Function ctermfg=NONE guifg=NONE cterm=NONE gui=NONE]])
 vim.cmd([[highlight ModeMsg ctermfg=NONE guifg=NONE cterm=NONE gui=NONE]])
