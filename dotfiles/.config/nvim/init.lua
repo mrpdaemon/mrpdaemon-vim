@@ -207,3 +207,74 @@ vim.keymap.set('n', '<C-K>', '<C-W>k', { silent = true })
 vim.keymap.set('n', '<C-L>', '<C-W>l', { silent = true })
 vim.keymap.set('n', '<C-H>', '<C-W>h', { silent = true })
 
+-- Git diff vs master: populate quickfix with changed files; <CR> in the
+-- quickfix opens the file as a vertical diff against master, replacing any
+-- prior diff in the main window area.
+local gdm_qf_title = "git diff --name-only master"
+
+local function gdm_open_under_cursor()
+  local qfinfo = vim.fn.getqflist({ title = 0, items = 0 })
+  if qfinfo.title ~= gdm_qf_title then
+    vim.cmd(".cc")
+    return
+  end
+  local item = qfinfo.items[vim.fn.line('.')]
+  if not item then return end
+  local filename = (item.filename and item.filename ~= "")
+    and item.filename
+    or vim.fn.bufname(item.bufnr)
+  if not filename or filename == "" then return end
+
+  local qf_winid = vim.api.nvim_get_current_win()
+  local main_winid
+  for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+    if win ~= qf_winid then
+      local bt = vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(win), 'buftype')
+      if bt ~= 'quickfix' then
+        main_winid = win
+        break
+      end
+    end
+  end
+  if not main_winid then
+    vim.cmd("aboveleft new")
+    main_winid = vim.api.nvim_get_current_win()
+  end
+
+  for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+    if win ~= qf_winid and win ~= main_winid then
+      pcall(vim.api.nvim_win_close, win, true)
+    end
+  end
+
+  vim.api.nvim_set_current_win(main_winid)
+  pcall(vim.cmd, "diffoff")
+  vim.cmd("edit " .. vim.fn.fnameescape(filename))
+  vim.cmd("Gvdiffsplit master")
+end
+
+local function gdm_populate_qf()
+  local files = vim.fn.systemlist({ "git", "diff", "--name-only", "master" })
+  if vim.v.shell_error ~= 0 then
+    vim.notify(table.concat(files, "\n"), vim.log.levels.ERROR)
+    return
+  end
+  local items = {}
+  for _, f in ipairs(files) do
+    if f ~= "" then
+      table.insert(items, { filename = f, lnum = 1, col = 1, text = f })
+    end
+  end
+  if #items == 0 then
+    vim.notify("No changes vs master", vim.log.levels.INFO)
+    return
+  end
+  vim.fn.setqflist({}, ' ', { title = gdm_qf_title, items = items })
+  vim.cmd("copen")
+  vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', '', {
+    noremap = true, silent = true, callback = gdm_open_under_cursor,
+  })
+end
+
+vim.keymap.set('n', '<leader>gdm', gdm_populate_qf,
+  { silent = true, desc = "Git diff vs master -> quickfix" })
