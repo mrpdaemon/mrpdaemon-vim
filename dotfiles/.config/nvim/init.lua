@@ -95,8 +95,11 @@ require("lazy").setup({
     { "tpope/vim-fugitive",
        lazy = false,
        keys = {
-         { "<leader>gv", "<cmd>Gvdiffsplit<cr>", desc = "Git vertical split" },
-         { "<leader>gvm", "<cmd>Gvdiffsplit master<cr>", desc = "Git vertical split master" },
+         { "<leader>gv",
+           function()
+              vim.cmd("Gvdiffsplit " .. (vim.g.mrp_diff_base or "HEAD"))
+           end,
+           desc = "Git vertical split vs diff base" },
        },
       config = function()
       end,
