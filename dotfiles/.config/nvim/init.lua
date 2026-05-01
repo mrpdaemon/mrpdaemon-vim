@@ -104,16 +104,23 @@ require("lazy").setup({
     { "airblade/vim-gitgutter",
        lazy = false,
        keys = {
-         { "<leader>gm",
+         { "<leader>gb",
            function()
-              vim.g.gitgutter_diff_base = "master"
+              local current = vim.g.mrp_diff_base or "HEAD"
+              local base = vim.fn.input("Diff base: ", current)
+              if base == "" then return end
+              vim.g.mrp_diff_base = base
+              vim.g.gitgutter_diff_base = base
+              vim.cmd("GitGutterAll")
            end,
-           desc = "Gitgutter base = master" },
+           desc = "Set git diff base" },
          { "<leader>gc",
            function()
+              vim.g.mrp_diff_base = "HEAD"
               vim.g.gitgutter_diff_base = ""
+              vim.cmd("GitGutterAll")
            end,
-           desc = "Gitgutter base = HEAD" },
+           desc = "Reset diff base to HEAD" },
        },
       config = function()
       end,
@@ -207,14 +214,18 @@ vim.keymap.set('n', '<C-K>', '<C-W>k', { silent = true })
 vim.keymap.set('n', '<C-L>', '<C-W>l', { silent = true })
 vim.keymap.set('n', '<C-H>', '<C-W>h', { silent = true })
 
--- Git diff vs master: populate quickfix with changed files; <CR> in the
--- quickfix opens the file as a vertical diff against master, replacing any
--- prior diff in the main window area.
-local gdm_qf_title = "git diff --name-only master"
+-- Git diff vs the configured diff base (vim.g.mrp_diff_base): populate
+-- quickfix with changed files; <CR> in the quickfix opens the file as a
+-- vertical diff against the same base, replacing any prior diff in the
+-- main window area.
+vim.g.mrp_diff_base = "HEAD"
 
-local function gdm_open_under_cursor()
+local gd_qf_title_prefix = "git diff --name-only "
+local gd_diff_base = nil
+
+local function gd_open_under_cursor()
   local qfinfo = vim.fn.getqflist({ title = 0, items = 0 })
-  if qfinfo.title ~= gdm_qf_title then
+  if not gd_diff_base or qfinfo.title ~= (gd_qf_title_prefix .. gd_diff_base) then
     vim.cmd(".cc")
     return
   end
@@ -250,11 +261,12 @@ local function gdm_open_under_cursor()
   vim.api.nvim_set_current_win(main_winid)
   pcall(vim.cmd, "diffoff")
   vim.cmd("edit " .. vim.fn.fnameescape(filename))
-  vim.cmd("Gvdiffsplit master")
+  vim.cmd("Gvdiffsplit " .. gd_diff_base)
 end
 
-local function gdm_populate_qf()
-  local files = vim.fn.systemlist({ "git", "diff", "--name-only", "master" })
+local function gd_populate_qf()
+  local base = vim.g.mrp_diff_base or "HEAD"
+  local files = vim.fn.systemlist({ "git", "diff", "--name-only", base })
   if vim.v.shell_error ~= 0 then
     vim.notify(table.concat(files, "\n"), vim.log.levels.ERROR)
     return
@@ -266,15 +278,16 @@ local function gdm_populate_qf()
     end
   end
   if #items == 0 then
-    vim.notify("No changes vs master", vim.log.levels.INFO)
+    vim.notify("No changes vs " .. base, vim.log.levels.INFO)
     return
   end
-  vim.fn.setqflist({}, ' ', { title = gdm_qf_title, items = items })
+  gd_diff_base = base
+  vim.fn.setqflist({}, ' ', { title = gd_qf_title_prefix .. base, items = items })
   vim.cmd("copen")
   vim.api.nvim_buf_set_keymap(0, 'n', '<CR>', '', {
-    noremap = true, silent = true, callback = gdm_open_under_cursor,
+    noremap = true, silent = true, callback = gd_open_under_cursor,
   })
 end
 
-vim.keymap.set('n', '<leader>gdm', gdm_populate_qf,
-  { silent = true, desc = "Git diff vs master -> quickfix" })
+vim.keymap.set('n', '<leader>gd', gd_populate_qf,
+  { silent = true, desc = "Git diff vs base -> quickfix" })
