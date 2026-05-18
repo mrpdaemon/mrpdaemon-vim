@@ -218,8 +218,38 @@ require("lazy").setup({
               highlight = {
                 enable = true,
                 additional_vim_regex_highlighting = false,
+                disable = { "markdown", "markdown_inline" },
               },
           })
+          -- nvim-treesitter's markdown injections.scm uses a custom
+          -- #set-lang-from-info-string! directive that's incompatible with
+          -- nvim 0.10+'s iter_matches API (passes a TSNode[] where a TSNode
+          -- is expected), which throws "attempt to call method 'range' (a
+          -- nil value)" on fenced code blocks. Replace it with a plain
+          -- @injection.language capture.
+          vim.treesitter.query.set("markdown", "injections", [[
+(fenced_code_block
+  (info_string (language) @injection.language)
+  (code_fence_content) @injection.content)
+
+((html_block) @injection.content
+  (#set! injection.language "html")
+  (#set! injection.combined)
+  (#set! injection.include-children))
+
+((minus_metadata) @injection.content
+  (#set! injection.language "yaml")
+  (#offset! @injection.content 1 0 -1 0)
+  (#set! injection.include-children))
+
+((plus_metadata) @injection.content
+  (#set! injection.language "toml")
+  (#offset! @injection.content 1 0 -1 0)
+  (#set! injection.include-children))
+
+([(inline) (pipe_table_cell)] @injection.content
+  (#set! injection.language "markdown_inline"))
+]])
        end
     },
   },
