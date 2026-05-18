@@ -318,6 +318,11 @@ local function gd_open_under_cursor()
   pcall(vim.cmd, "diffoff")
   vim.cmd("edit " .. vim.fn.fnameescape(filename))
   vim.cmd("Gvdiffsplit " .. gd_diff_base)
+  for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+    if vim.api.nvim_get_option_value('diff', { win = win }) then
+      vim.api.nvim_set_option_value('wrap', true, { win = win })
+    end
+  end
 end
 
 local function gd_populate_qf()
